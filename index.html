@@ -1,152 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7oocode API</title>
-<link rel="icon" href="https://github.com/Joodev65.png" type="image/png">
-<meta name="description" content="7oocode API - Your Ultimate API Collection">
-<meta name="theme-color" content="#007bff">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Poppins',sans-serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%); color:#e5e7eb; min-height:100vh; line-height:1.6; overflow-x:hidden; }
-  .header { position:fixed; top:0; left:0; right:0; background:rgba(10,10,10,0.95); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.1); z-index:1000; padding:0 1rem; height:60px; }
-  .header-content { display:flex; align-items:center; justify-content:space-between; height:100%; max-width:1200px; margin:0 auto; }
-  .menu-toggle { display:flex; align-items:center; justify-content:center; width:40px; height:40px; background: rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:8px; cursor:pointer; z-index:1001; transition:all 0.3s ease; color:#e5e7eb; }
-  .menu-toggle:hover { background: rgba(255,255,255,0.1); border-color: rgba(59,130,246,0.5); }
-  .menu-toggle.active { background: rgba(59,130,246,0.2); border-color:#3b82f6; color:#3b82f6; }
-  .logo { font-size:1.25rem; font-weight:600; color:#ffffff; text-align:center; flex:1; letter-spacing:-0.025em; }
-  .profile-img { width:36px; height:36px; border-radius:50%; overflow:hidden; border:2px solid rgba(255,255,255,0.1); transition:border-color 0.3s ease; }
-  .profile-img:hover { border-color:#3b82f6; }
-  .profile-img img { width:100%; height:100%; object-fit:cover; }
-  .sidebar { position:fixed; left:-320px; top:0; width:320px; height:100vh; background: rgba(15,15,15,0.98); backdrop-filter:blur(20px); border-right:1px solid rgba(255,255,255,0.1); transition:left 0.4s cubic-bezier(0.4,0,0.2,1); z-index:999; overflow-y:auto; }
-  .sidebar.active { left:0; }
-  .sidebar-header { padding:1.5rem 1.25rem; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1); }
-  .sidebar-header h2 { font-size:1.125rem; color:#ffffff; font-weight:600; letter-spacing:-0.025em; }
-  .nav-menu { list-style:none; padding:0.75rem 0; }
-  .nav-item { margin-bottom:0.25rem; }
-  .nav-link { display:flex; align-items:center; gap:0.75rem; padding:0.875rem 1.25rem; color:#9ca3af; text-decoration:none; transition:all 0.3s ease; border-left:3px solid transparent; font-size:0.875rem; font-weight:500; }
-  .nav-link:hover, .nav-link.active { background: rgba(59,130,246,0.1); color:#ffffff; border-left-color:#3b82f6; }
-  .nav-icon { flex-shrink:0; color:inherit; width:20px; height:20px; }
-  .main-content { margin-top:60px; padding:1.5rem 1rem; max-width:1200px; margin-left:auto; margin-right:auto; }
-  .status-section { display:grid; grid-template-columns:1fr; gap:1rem; margin-bottom:2rem; }
-  .status-card { background: rgba(31,41,55,0.6); border-radius:16px; padding:1.25rem; border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(20px); display:flex; align-items:center; gap:1rem; animation:fadeIn 0.6s ease-out; }
-  .status-card:hover { transform:translateY(-2px); box-shadow:0 20px 40px rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.3); }
-  .status-icon { display:flex; align-items:center; justify-content:center; width:48px; height:48px; background: rgba(59,130,246,0.1); border-radius:12px; border:1px solid rgba(59,130,246,0.2); color:#3b82f6; flex-shrink:0; }
-  .status-info { flex:1; }
-  .status-info h3 { font-size:0.875rem; margin-bottom:0.25rem; color:#ffffff; font-weight:600; }
-  .status-badge { display:inline-flex; align-items:center; padding:0.25rem 0.75rem; border-radius:12px; font-size:0.75rem; font-weight:600; border:1px solid; }
-  .status-badge.active { background: rgba(34,197,94,0.1); color:#22c55e; border-color: rgba(34,197,94,0.2); }
-  .overlay { position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.6); z-index:998; opacity:0; visibility:hidden; transition: all 0.3s ease; }
-  .overlay.active { opacity:1; visibility:visible; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-  .footer { text-align:center; padding:2rem 0 1rem; color:#6b7280; border-top:1px solid rgba(255,255,255,0.1); margin-top:2rem; font-size:0.875rem; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaoiii Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        .product-card {
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative; /* Untuk bingkai RGB */
+        }
+
+        /* Bingkai RGB */
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            margin: -2px; /* Lebar bingkai */
+            border-radius: inherit; /* Membuat sudut bulat yang sesuai */
+            background: linear-gradient(45deg, #FF0000, #00FF00, #0000FF, #FFFF00, #FF00FF, #00FFFF);
+            background-size: 600% 600%;
+            animation: rainbow 12s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .get-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            background-color: #ddd;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>YAOIII STORE</h1>
+    </header>
 
-<header class="header">
-  <div class="header-content">
-    <button class="menu-toggle" id="menuToggle">&#9776;</button>
-    <h1 class="logo">7oocode API</h1>
-    <div class="profile-img">
-      <img src="https://github.com/Joodev65.png" alt="Profile">
+    <div class="container">
+        <!-- Paket 1 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 1 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 1k</div>
+            </div>
+        </div>
+
+        <!-- Paket 2 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 2 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 2k</div>
+            </div>
+        </div>
+
+        <!-- Paket 3 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 3 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 3k</div>
+            </div>
+        </div>
+
+       <!-- Paket 4 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 4 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 4k</div>
+            </div>
+        </div>
+
+        <!-- Paket 5 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 5 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 5k</div>
+            </div>
+        </div>
+
+        <!-- Paket 6 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 6 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 6k</div>
+            </div>
+        </div>
+
+        <!-- Paket 7 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 7 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 7k</div>
+            </div>
+        </div>
+
+        <!-- Paket 8 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 8 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 8k</div>
+            </div>
+        </div>
+
+        <!-- Paket 9 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 9 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 9k</div>
+            </div>
+        </div>
+
+        <!-- Paket 10 GB -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL 10 GB</h2>
+                <button class="get-button">GET</button>
+                <div class="price">RP 10k</div>
+            </div>
+        </div>
+
+        <!-- Paket UNLI -->
+        <div class="product-card">
+            <img src="https://i.imgur.com/example.png" alt="Gambar Produk" class="product-image">
+            <div class="product-info">
+                <h2 class="product-title">PAKET PANEL UNLI</h2>
+                <button class="get-button">GET</button>
+                <div class="price">Harga Spesial</div>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
 
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <h2>7oocode API</h2>
-  </div>
-  <ul class="nav-menu">
-    <li class="nav-item">
-      <a href="#dashboard" class="nav-link active">Dashboard</a>
-    </li>
-  </ul>
-</nav>
-
-<main class="main-content">
-  <section class="status-section">
-    <div class="status-card">
-      <div class="status-icon">💻</div>
-      <div class="status-info">
-        <h3>Status Server</h3>
-        <span class="status-badge active">● Active</span>
-      </div>
-    </div>
-    <div class="status-card">
-      <div class="status-icon">🔋</div>
-      <div class="status-info">
-        <h3>Battery Status</h3>
-        <span class="status-badge" id="batteryStatus">Getting...</span>
-      </div>
-    </div>
-    <div class="status-card">
-      <div class="status-icon">🌐</div>
-      <div class="status-info">
-        <h3>IP Address</h3>
-        <span class="status-badge" id="ipAddress">Loading...</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="api-section">
-    <h2 class="section-title">Contact & Donate</h2>
-    <div class="api-links">
-      <a href="https://wa.me/628123456789" class="api-link contact">
-        <span class="api-icon">💬</span> WhatsApp
-      </a>
-      <a href="https://saweria.co/joodev" class="api-link donate">
-        <span class="api-icon">💰</span> Donate
-      </a>
-    </div>
-  </section>
-</main>
-
-<div class="footer">
-  &copy; 2025 7oocode API. All rights reserved.
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('overlay');
-  menuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    overlay.classList.toggle('active');
-  });
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-  });
-
-  // Battery API
-  if (navigator.getBattery) {
-    navigator.getBattery().then(function(battery) {
-      function updateBattery() {
-        const statusEl = document.getElementById('batteryStatus');
-        let level = Math.floor(battery.level * 100) + '%';
-        let badge = level <= 20 ? 'Low' : battery.charging ? 'Charging' : 'Active';
-        statusEl.textContent = level + ' (' + badge + ')';
-      }
-      updateBattery();
-      battery.addEventListener('chargingchange', updateBattery);
-      battery.addEventListener('levelchange', updateBattery);
-    });
-  } else {
-    document.getElementById('batteryStatus').textContent = 'Not supported';
-  }
-
-  // IP Address fetch
-  fetch('https://api.ipify.org?format=json')
-    .then(res => res.json())
-    .then(data => document.getElementById('ipAddress').textContent = data.ip)
-    .catch(err => document.getElementById('ipAddress').textContent = 'Error');
-</script>
-
+    <footer>
+        <p>© Yaoiii Store</p>
+    </footer>
 </body>
 </html>
